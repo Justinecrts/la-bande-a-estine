@@ -1,11 +1,30 @@
 <div class="logo-top">
-<%= image_tag "LBAE.png" %>
+LA BANDE A ESTINE
 </div>
 <div class="container-menu">
   <ul class= "home-menu">
-    <li class="item-menu">HOME</li>
-    <li class="item-menu">ABOUT</li>
-    <li class="item-menu">MODELS</li>
-    <li class="item-menu">SHOP</li>
+    <li class="item-menu">
+      <%= link_to "/" do %>
+      HOME
+      <% end %>
+    </li>
+    <li class="item-menu">
+      <%= link_to principes_path do %>
+      LE PRINCIPE
+      <% end %>
+    </li>
+    <li class="item-menu">
+      <%= link_to headbands_path do %>
+      SHOP
+      <% end %>
+    </li>
+    <li class="item-menu">
+      <%= link_to abouts_path do %>
+      ABOUT US
+      <% end %>
+    </li>
   </ul>
 </div>
+
+
+

@@ -6,7 +6,6 @@ class HeadbandsController < ApplicationController
   def index
     @headbands  = Headband.all
   end
-end
 
   def show
 
@@ -21,3 +20,5 @@ end
   def headband_params
     params.require(:headband).permit(:name, :description)
   end
+
+end
