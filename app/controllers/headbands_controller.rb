@@ -8,7 +8,6 @@ class HeadbandsController < ApplicationController
   end
 
   def show
-
   end
 
   private

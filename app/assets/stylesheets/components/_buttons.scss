@@ -1,0 +1,43 @@
+.button-read-more{
+    width: 100%;
+    display: block;
+    background: #fff;
+    margin-top: 35px;
+    color: $ciel;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    border: solid 1px $ciel;
+}
+
+.button-read-more:hover{
+  background: $ciel;
+  color: #fff;
+  border-color: #fff !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button-add-to-cart{
+    width: 100%;
+    display: block;
+    background: #fff;
+    margin-bottom: 35px;
+    color: $ciel;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    border: solid 1px $ciel;
+}
+
+.button-add-to-cart:hover{
+  background: $ciel;
+  color: #fff;
+  border-color: #fff !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
