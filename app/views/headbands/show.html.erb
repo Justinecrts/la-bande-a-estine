@@ -1,5 +1,6 @@
 <div class="container-home">
-    <h6><%= @headband.name%></h6>
+<br>
+<br>
       <div class="row">
         <div class="col-sm-7">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -43,9 +44,9 @@
         </div>
         <div class="col-sm-5">
           <div class="button-add-to-cart">
-            <h6>AJOUTER CET ARTICLE A MON PANIER</h6>
+            <h5>AJOUTER A MON PANIER <i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h5>
           </div>
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<!-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
@@ -84,24 +85,46 @@
               </div>
               <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div class="panel-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
                 </div>
               </div>
+            </div>
+          </div> -->
+          <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+              <li role="presentation"><a href="#composition" aria-controls="composition" role="tab" data-toggle="tab">Composition</a></li>
+              <li role="presentation"><a href="#livraison" aria-controls="livraison" role="tab" data-toggle="tab">Livraison et retour</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="description">
+              <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas fugit voluptatem illo officiis, laudantium, ipsa sint cumque at dicta nihil tempore temporibus eveniet velit ut labore, nobis esse iste consequuntur.</div>
+              <div role="tabpanel" class="tab-pane" id="composition"><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aperiam quisquam nobis sequi esse aut assumenda nemo eum magni, eveniet ab veniam veritatis, error, sit voluptate molestias officia consectetur unde.</div>
+              <div role="tabpanel" class="tab-pane" id="livraison"><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et voluptas eius esse totam sit molestias, labore alias dolorem deserunt doloribus, placeat a unde, tenetur sapiente quibusdam? Veritatis temporibus reprehenderit perspiciatis?</div>
             </div>
           </div>
         </div>
       </div>
+      <div class="card-headband-title">
+        <h4><strong>QUI EST-TU ESTINETTE <%= @headband.name.upcase %> ? </strong></h4>
+      </div>
       <div class="row">
-        <div class="col-sm-4">
-          <div class="principe" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "bandeau4.png"%>);">
+          <div class="col-sm-4">
+            <div class="principe" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "bandeau4.png"%>);">
+            </div>
           </div>
-        </div>
-        <div class="col-sm-8">
-          <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
-          <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
-          <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui temporibus dolorem inventore qui  </h6>
-          <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
-          <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui temporibus dolorem inventore qui  </h6>
-        </div>
+          <div class="col-sm-8">
+            <div class="card-text-model-presentation">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui temporibus dolorem inventore qui  </h6>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui temporibus dolorem inventore qui</h6>
+              <div class="button-add-to-cart">
+                <h6>AJOUTER <%= @headband.name.upcase %> A MON PANIER <i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h6>
+              </div>
+            </div>
+          </div>
       </div>
 </div>

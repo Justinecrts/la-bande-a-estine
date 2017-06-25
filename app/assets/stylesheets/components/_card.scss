@@ -65,7 +65,6 @@
   padding: 10px;
   text-align: center;
   }
-
 }
 
 .card-shop-season{
@@ -79,4 +78,17 @@
   background-size: cover !important;
   background-position: center;
   position: relative;
+}
+
+
+.card-text-model-presentation{
+  margin-top: 19px;
+}
+
+.card-headband-title{
+  margin-top: 60px;
+  color: $saumon;
+  font-weight: bold;
+  border-bottom: 2px solid $saumon;
+  margin-right: 712px;
 }

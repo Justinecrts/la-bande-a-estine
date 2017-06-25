@@ -23,9 +23,9 @@
 .button-add-to-cart{
     width: 100%;
     display: block;
-    background: #fff;
+    background: $ciel;
     margin-bottom: 35px;
-    color: $ciel;
+    color: white;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 10px;
@@ -35,9 +35,9 @@
 }
 
 .button-add-to-cart:hover{
-  background: $ciel;
-  color: #fff;
-  border-color: #fff !important;
+  background: white;
+  color: $ciel;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: solid 1px $ciel;
 }
