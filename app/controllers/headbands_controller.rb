@@ -1,5 +1,5 @@
 class HeadbandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [:index, :show ]
   before_action :find_headband, only: [:show]
 
 
@@ -17,7 +17,7 @@ class HeadbandsController < ApplicationController
   end
 
   def headband_params
-    params.require(:headband).permit(:name, :description)
+    params.require(:headband).permit(:name, :description, photos: [])
   end
 
 end
