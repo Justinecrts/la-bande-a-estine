@@ -43,9 +43,12 @@
           </div>
         </div>
         <div class="col-sm-5">
+        <%= link_to add_item_path(@headband.id), class: "link-unstyled" do %>
           <div class="button-add-to-cart">
             <h5>AJOUTER A MON PANIER <i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h5>
           </div>
+        <% end %>
+
 <!-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingOne">

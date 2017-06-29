@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628132321) do
+ActiveRecord::Schema.define(version: 20170627232508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cart_headbands", force: :cascade do |t|
     t.integer  "cart_id"
-    t.integer  "headbands_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "headband_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["cart_id"], name: "index_cart_headbands_on_cart_id", using: :btree
-    t.index ["headbands_id"], name: "index_cart_headbands_on_headbands_id", using: :btree
+    t.index ["headband_id"], name: "index_cart_headbands_on_headband_id", using: :btree
   end
 
   create_table "carts", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170628132321) do
   end
 
   add_foreign_key "cart_headbands", "carts"
-  add_foreign_key "cart_headbands", "headbands", column: "headbands_id"
+  add_foreign_key "cart_headbands", "headbands"
   add_foreign_key "carts", "users"
   add_foreign_key "headbands", "categories"
 end

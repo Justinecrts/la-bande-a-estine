@@ -1,1 +1,12 @@
-<h1>PANIER</h1>
+<div class="text-center">
+  <h3> MON PANIER</h3>
+  <p><%= @cart.cart_headbands.size %> articles</p>
+  <% @cart.cart_headbands.each do |item| %>
+    <p>
+      <%= item.headband.name %>
+      <%= item.headband.price %> €
+    </p>
+  <% end %>
+  <p>Total: <%= @cart.amount %> €</p>
+</div>
+
