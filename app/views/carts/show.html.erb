@@ -1,12 +1,45 @@
-<div class="text-center">
-  <h3> MON PANIER</h3>
-  <p><%= @cart.cart_headbands.size %> articles</p>
-  <% @cart.cart_headbands.each do |item| %>
-    <p>
-      <%= item.headband.name %>
-      <%= item.headband.price %> €
-    </p>
-  <% end %>
-  <p>Total: <%= @cart.amount %> €</p>
+<div class="container-home">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="text-center">
+        <h2>Mon panier</h2>
+        <p><%= @cart.cart_headbands.size %> articles</p>
+        <p>Total: <%= @cart.amount %> €</p>
+      </div>
+        <% @cart.cart_headbands.each do |item| %>
+          <div class="product">
+            <%= link_to headband_path(item.headband) do %>
+              <div class='product-body'>
+                <h3><%= item.headband.name %></h3>
+                <p><%= item.headband.price %> €</p>
+            <% end %>
+              </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li>
+                <%= link_to headband_path(item.headband) do %>
+                  <i class="fa fa-eye""></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to headband_path(item.headband), method: :delete, data: { confirm: "Confirmez la
+                suppression de #{item.headband.name}?" } do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              </li>
+              <li><a href=""><i class="fa fa-star"></i></a></li>
+            </ul>
+          </div>
+      <% end %>
+      <br>
+      <br>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card-description">
+          <h4>Mes informations de livraison</h4>
+          <input type="text" class="form-control" placeholder="Adresse ligne 1">
+          <br>
+          <input type="text" class="form-control" placeholder="Adresse ligne 2">
+        </div>
+      </div>
+      </div>
+  </div>
 </div>
-

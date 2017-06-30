@@ -1,3 +1,2 @@
 class CartheadbandsController < ApplicationController
-
 end

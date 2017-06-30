@@ -36,9 +36,9 @@
           <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
           <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui, ullam sint non. Beatae, modi. Aperiam officiis iusto nesciunt ipsa qui dolorum molestiae earum recusandae hic.</h6>
           <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere autem temporibus dolorem inventore qui temporibus dolorem inventore qui  </h6>
-          <div class="button-read-more">
-            <h6>READ MORE</h6>
-          </div>
+          <%= link_to principle_path, class: "button-read-more" do %>
+          <h6>READ MORE</h6>
+          <% end %>
         </div>
       </div>
     </div>
@@ -55,18 +55,22 @@
       </div>
       <div class="row">
         <div class="col-sm-6 collection">
-          <div class="card-image-shop"  style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "s.jpg"%>);">
+          <%= link_to headbands_path(:category => "1") do %>
+          <div class="card-image-shop", id="s", style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "s.jpg"%>);">
           <div class="season">
             <h6>SPRING / SUMMER</h6>
           </div>
           </div>
+          <% end %>
         </div>
         <div class="col-sm-6 collection">
-          <div class="card-image-shop"  style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "w.png"%>);">
+          <%= link_to headbands_path(:category => "2") do %>
+          <div class="card-image-shop", id="w", style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url(<%= image_path "w.png"%>);">
           <div class="season">
-            <h6>AUTOMN/ WINTER</h6>
+            <h6>AUTOMN / WINTER</h6>
           </div>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

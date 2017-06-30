@@ -19,6 +19,7 @@ class CartsController < ApplicationController
       puts "price#{@cart.amount}"
     end
   end
+
 end
 
 

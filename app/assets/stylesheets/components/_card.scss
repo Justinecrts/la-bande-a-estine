@@ -32,7 +32,6 @@
   height: 150px;
   position: relative;
   background-position: center;
-  margin: 6px;
   h6{
   font-size: 20px;
   color: black;
@@ -46,12 +45,19 @@
   }
 }
 
+#s{
+  margin-right: 6px;
+}
+
+#w{
+  margin-left: 6px;
+}
+
 .card-image-shop:hover{
   background-size: cover !important;
   height: 150px;
   position: relative;
   background-position: center;
-  margin-right: 5px;
   opacity: 0.8;
   cursor: pointer;
     h6{
@@ -68,9 +74,9 @@
 }
 
 .card-shop-season{
-    background-size: cover !important;
-    height: 150px;
-    margin: 6px;
+  background-size: cover !important;
+  height: 150px;
+  margin: 6px;
 }
 
 .card-image-photo{
