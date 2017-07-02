@@ -1,10 +1,13 @@
 .product {
   display: flex;
   align-items: center;
-  padding: 20px;
   border-radius: 3px;
-  transition: all 0.15s ease;
+  margin-right: 60px;
+  margin-left: 60px;
+  border: 0.4px solid $ciel;
+  margin-top: 10px;
 }
+
 
 /* Body design */
 .product-body {
@@ -23,33 +26,8 @@
 
 /* Product image */
 .product-image {
-  border-radius: 10px;
   margin-right: 20px;
-  width: 175px;
-}
-
-/* Upvote design */
-.product-upvote {
-  padding-right: 20px;
-  text-align: center;
-  transition: all 0.15s ease;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 20px;
-}
-.product-count {
-  margin: 2px 0 0;
-}
-.product-arrow {
-  transition: all 0.15s ease;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid transparent;
-  border-bottom: 9px solid black;
-  border-radius: 2px;
-  margin: auto;
+  height: 130px;
 }
 
 /* Controls design */
@@ -62,10 +40,10 @@
 .product-controls a {
   padding: 0 20px;
   font-size: 17px;
-  color: #E6E6E6;
+  color: #D0D0D0;
 }
 .product-controls a:hover {
-  color: #D3473C !important
+  color:  !important
 }
 .product-controls-hidden a {
   color: transparent;
@@ -75,25 +53,12 @@
 }
 
 /* Hover effects */
-.product:hover {
-  background: #f7f7fa;
-  cursor: pointer;
-}
-.product-upvote:hover, .product-upvote.product-upvote-upvoted {
-  color: #5898f1;
-  cursor: pointer;
-}
-.product-upvote-upvoted .product-arrow {
-  border-bottom-color: #5898f1;
-}
-// .product:hover .product-upvote {
-//   transform: scale(1.2)
-// }
 .product:hover .product-controls-hidden a {
   color: #E6E6E6;
 }
-.product-upvote:hover .product-arrow {
-  border-bottom: 9px solid #5898f1;
+
+.product-controls a:hover {
+  color: $saumon !important;
 }
 
 .picture-product{
@@ -104,4 +69,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.product-image:hover {
+  cursor: pointer;
+  transform: scale(2.01);
+  transition: all .5s ease;
+  opacity: 0.8;
+  border-radius: 2px;
 }

@@ -14,8 +14,15 @@ LA BANDE A ESTINE
       <% end %>
     </li>
     <li class="item-menu">
-      <%= link_to headbands_path, class: "underline" do %>
-      SHOP
+      <dropdown>
+        <%= link_to headbands_path, class: "underline" do %>
+          <input id="toggle1" type="checkbox">
+          <label for="toggle1" class="animate underline-dropdown">SHOP</label>
+          <ul class="animate">
+            <li class="animate">Spring / Summer</li>
+            <li class="animate">Automn / Winter</i></li>
+          </ul>
+        </dropdown>
       <% end %>
     </li>
     <li class="item-menu">
@@ -31,23 +38,23 @@ LA BANDE A ESTINE
           <div class="dropdown">
             <%= link_to "#", class: "dropdown-toggle navbar-link navbar-link-user", id: "navbar-menu", "data-toggle" => "dropdown" do %>
             <% if current_user %>
-              <%= current_user.email %> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <% end %>
           <% end %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
                 <%= link_to cart_path(current_user) do %>
-                  <i class="fa fa-tachometer"></i> <%= t(".profile", default: "Mon panier") %>
+                  <%= t(".profile", default: "Mon panier") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to edit_user_registration_path(current_user) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profil") %>
+                  <%= t(".profile", default: "Mon profil") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
+                  <%= t(".sign_out", default: "Déconnexion") %>
                 <% end %>
               </li>
             </ul>
@@ -61,6 +68,10 @@ LA BANDE A ESTINE
     </li>
   </ul>
 </div>
+
+
+
+
 
 
 
