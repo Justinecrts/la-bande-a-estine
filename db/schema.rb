@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627232508) do
+ActiveRecord::Schema.define(version: 20170702160647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170627232508) do
   create_table "cart_headbands", force: :cascade do |t|
     t.integer  "cart_id"
     t.integer  "headband_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "quantity",    default: 1
     t.index ["cart_id"], name: "index_cart_headbands_on_cart_id", using: :btree
     t.index ["headband_id"], name: "index_cart_headbands_on_headband_id", using: :btree
   end
@@ -27,8 +28,9 @@ ActiveRecord::Schema.define(version: 20170627232508) do
   create_table "carts", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "archived",   default: false
     t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
@@ -50,6 +52,17 @@ ActiveRecord::Schema.define(version: 20170627232508) do
     t.index ["category_id"], name: "index_headbands_on_category_id", using: :btree
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cart_id"
+    t.integer  "amount"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "status",     default: "pending"
+    t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -63,6 +76,14 @@ ActiveRecord::Schema.define(version: 20170627232508) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "place"
+    t.string   "adress"
+    t.string   "adress_complement"
+    t.string   "postcode"
+    t.string   "city"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -71,4 +92,6 @@ ActiveRecord::Schema.define(version: 20170627232508) do
   add_foreign_key "cart_headbands", "headbands"
   add_foreign_key "carts", "users"
   add_foreign_key "headbands", "categories"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "users"
 end

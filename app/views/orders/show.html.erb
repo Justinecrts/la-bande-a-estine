@@ -1,0 +1,59 @@
+<div class="container">
+<h4 class="order-title">MA COMMANDE</h4>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="order-info-card">
+        <h5>MES INFOS DE LIVRASON</h5>
+        <%= simple_form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <div class="col-md-6">
+              <%= f.input :first_name, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+               <%= f.input :last_name, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :email, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :phone, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-12">
+              <%= f.input :place, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-12">
+              <%= f.input :adress, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-12">
+              <%= f.input :adress_complement, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :postcode, required: true, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :city, required: true, autofocus: true %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Valider" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="order-items-card">
+        <h5>MES ARTICLES</h5>
+        <% @order.cart.cart_headbands.each do |cart_headband| %>
+          <p>
+            <%= cart_headband.headband.name %> x  <%= cart_headband.headband.quantity %>
+            <%= cart_headband.quantity %>
+            <span>- <%= cart_headband.quantity * cart_headband.headband.price %> € - </span>
+          </p>
+        <% end %>
+        <br>
+        Total: <%= @order.amount %> €
+      </div>
+    </div>
+  </div>
+</div>

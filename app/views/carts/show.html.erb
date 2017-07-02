@@ -1,145 +1,53 @@
 <div class="container-home">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <div class="text-center">
-        <h2>Mon panier</h2>
-        <p><%= @cart.cart_headbands.size %> articles</p>
-        <p>Total: <%= @cart.amount %> €</p>
-      </div>
-        <% @cart.cart_headbands.each do |item| %>
-          <div class="product">
-          <%= image_tag "bandeau1.png", {class: "product-image hidden-xs"}%>
-            <%= link_to headband_path(item.headband) do %>
-              <div class='product-body'>
-                <h3><%= item.headband.name %></h3>
-                <p><%= item.headband.price %> €</p>
-            <% end %>
-              </div>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li>
-                <%= link_to headband_path(item.headband) do %>
-                  <i class="fa fa-eye""></i>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to headband_path(item.headband), method: :delete, data: { confirm: "Confirmez la
-                suppression de #{item.headband.name}?" } do %>
-                  <i class="fa fa-trash"></i>
-                <% end %>
-              </li>
-            </ul>
-          </div>
+      <% if @cart.cart_headbands.empty? %>
+        <div class="text-center">
+          <h2>Panier vide</h2>
+        </div>
+      <% else %>
+        <div class="text-center">
+          <h2>Mon panier</h2>
+          <p>Total: <%= @cart.amount %> €</p>
+        </div>
       <% end %>
-      <br>
-      <br>
-      </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-7 col-md-7">
-      <div class="col2-set" id="customer_details">
-        <div class="col-1">
-          <div class="woocommerce-billing-fields">
-            <h3 class="step-title"><span>Information de livraison</span></h3>
-            <p class="form-row form-row form-row-first validate-required" id="billing_first_name_field">
-            <label for="billing_first_name" class="">Nom<abbr class="required" title="required">*</abbr></label>
-            <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="" value=""></p>
-
-            <p class="form-row form-row form-row-last validate-required" id="billing_last_name_field">
-            <label for="billing_last_name" class="">Prénom<abbr class="required" title="required">*</abbr></label>
-            <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder="" value=""></p>
-
-            <div class="clear"></div>
-
-              <p class="form-row form-row form-row-first validate-required validate-email" id="billing_email_field">
-              <label for="billing_email" class="">Adresse email<abbr class="required" title="required">*</abbr></label>
-              <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder="" value="">
-              </p>
-
-              <p class="form-row form-row form-row-last validate-required validate-phone" id="billing_phone_field">
-              <label for="billing_phone" class="">Téléphone<abbr class="required" title="required">*</abbr></label>
-              <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value="">
-              </p>
-
-            <div class="clear"></div>
-
-              <p class="form-row form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated" id="billing_country_field">
-              <label for="billing_country" class="">Pays<abbr class="required" title="required">*</abbr></label>
-              <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value="">
-              </p>
-
-
-              <p class="form-row form-row form-row-wide address-field validate-required" id="billing_address_1_field">
-              <label for="billing_address_1" class="">Address <abbr class="required" title="required">*</abbr></label>
-              <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Street address" value="">
-              </p>
-
-              <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
-              <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="">
-              </p>
-
-              <p class="form-row form-row address-field validate-required validate-postcode form-row-first" id="billing_postcode_field" data-o_class="form-row form-row form-row-last address-field validate-required validate-postcode">
-              <label for="billing_postcode" class="">Postcode / ZIP <abbr class="required" title="required">*</abbr></label><input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="" value=""></p>
-
-              <p class="form-row form-row address-field validate-required form-row-last" id="billing_city_field" data-o_class="form-row form-row form-row-wide address-field validate-required">
-              <label for="billing_city" class="">Town / City <abbr class="required" title="required">*</abbr></label>
-              <input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="" value="">
-              </p>
-
-              <p class="form-row form-row address-field validate-state form-row-first" id="billing_state_field" style="display: none" data-o_class="form-row form-row form-row-first address-field validate-state">
-              <label for="billing_state" class="">State / County</label>
-              <input type="hidden" class="hidden" name="billing_state" id="billing_state" value="" placeholder="">
-              </p>
-
-            <div class="clear"></div>
-
-              <p class="form-row form-row-wide create-account">
-              <input class="input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1">
-              <label for="createaccount" class="checkbox">Create an account?</label>
-              </p>
-
-
-            <div class="clear"></div>
-
-              <p class="form-row form-row notes woocommerce-validated" id="order_comments_field"><label for="order_comments" class="">Order Notes</label><textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea></p>
+      <% @cart.cart_headbands.each do |cart_headband| %>
+        <div class="product">
+        <%= image_tag "bandeau1.png", {class: "product-image hidden-xs"}%>
+          <%= link_to headband_path(cart_headband.headband) do %>
+            <div class='product-body'>
+              <h3><%= cart_headband.headband.name %></h3>
+              <p><%= cart_headband.headband.price %> €</p>
+            </div>
+          <% end %>
+          <div class="product-quantity hidden-sm hidden-xs">
+            <p>
+              Quantité :
+              <% if cart_headband.quantity <= 1 %>
+                <%= link_to cartheadband_path(cart_headband.id), method: :delete, class: "link-unstyled" do %>
+                  <i class="fa fa-minus-square" aria-hidden="true"></i>
+                <% end %>
+              <% else %>
+                <%= link_to remove_quantity_path(cart_headband.id), class: "link-unstyled" do %>
+                  <i class="fa fa-minus-square" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <%= cart_headband.quantity %>
+              <%= link_to add_quantity_path(cart_headband.id), class: "link-unstyled" do %>
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+              <% end %>
+            </p>
+            <p>Prix total : <%= cart_headband.quantity * cart_headband.headband.price %> €</p>
           </div>
         </div>
-      </div>
-    </div>
-
-
-    <div class="col-lg-5 col-md-5">
-      <div class="order-review">
-        <h3 class="step-title"><span>Your order</span></h3>
-        <div id="order_review" class="woocommerce-checkout-review-order">
-          <table class="shop_table woocommerce-checkout-review-order-table">
-            <thead>
-              <tr>
-                <th class="product-name">Product</th>
-                <th class="product-total">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="cart_item">
-                <td class="product-name">FASHION DEMO ACCESSORIES<strong class="product-quantity"></strong></td>
-                <td class="product-total">
-                <span class="amount">£590.00</span>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr class="cart-subtotal">
-                <th>Subtotal</th>
-                <td><span class="amount">£590.00</span></td>
-              </tr>
-
-              <tr class="order-total">
-              <th>Total</th>
-              <td><strong><span class="amount">£590.00</span></strong> </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+      <% end %>
+      <br><br>
+      <div class="col-xs-4 col-xs-offset-4 text-center">
+        <%= link_to orders_path(cart_id: @cart), method: :post, class: "link-unstyled" do %>
+          <div class="button-add-to-cart">
+            <h5>COMMANDER</h5>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
